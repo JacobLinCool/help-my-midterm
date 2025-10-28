@@ -62,6 +62,7 @@ def main():
     
     # 定義所有視覺化模組
     visualizations = [
+        ('visualizations.quick_reference', '快速參考卡 (Quick Reference Card)'),
         ('visualizations.regression', '回歸分析 (LSE, Ridge, Lasso, GD, Newton)'),
         ('visualizations.distributions', '機率分佈 (Gaussian, Beta, Poisson, Gamma)'),
         ('visualizations.classification', '分類方法 (Naive Bayes, Logistic Regression)'),
