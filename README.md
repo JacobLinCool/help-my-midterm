@@ -1,105 +1,155 @@
 # 📘 Help My Midterm - 機器學習期中考筆記
 
-完整的機器學習核心概念筆記，配合 Python 視覺化幫助你從零開始理解所有內容！
+完整的機器學習核心概念筆記，每章配合豐富的 Python 視覺化幫助你從零開始理解所有內容！
 
 ## 🎯 專案簡介
 
 這個專案提供：
-- 📝 完整的機器學習核心概念筆記（中文）
-- 📊 豐富的視覺化圖片，幫助理解抽象概念
+- 📝 分章節的機器學習核心概念筆記（中文）
+- 📊 17 張高品質視覺化圖片，展示代數和幾何意義
 - 🐍 使用 Python 和 uv 管理所有依賴
-- 🎨 自動生成所有學習輔助圖片
+- 🎨 所有學習輔助圖片都包含在倉庫中
 
 ## 📚 內容涵蓋
 
-### 回歸分析
+### [第一章：回歸分析](notes/01-regression.md)
 - Least Squares Error (LSE)
 - L1/L2 正規化 (Lasso/Ridge)
 - 梯度下降 (Gradient Descent)
 - 牛頓法 (Newton's Method)
 - Bias-Variance Trade-off
 
-### 機率分佈
+### [第二章：機率與分佈](notes/02-probability.md)
+- Bayes' Theorem
+- MLE & MAP
 - Gaussian Distribution
 - Beta-Binomial 共軛
 - Gamma-Poisson 共軛
-- MLE vs MAP
 
-### 分類方法
+### [第三章：分類方法](notes/03-classification.md)
 - Naive Bayes Classifier
+- Sigmoid Function
 - Logistic Regression
 - Confusion Matrix 和性能指標
 
-### 聚類與 EM
+### [第四章：EM 演算法與聚類](notes/04-em-algorithm.md)
+- EM Algorithm 原理
 - Gaussian Mixture Model (GMM)
-- EM Algorithm (E-step & M-step)
+- E-step & M-step
+- K-Means vs GMM
 
 ## 🚀 快速開始
 
-### 1. 安裝依賴
+### 1. 閱讀筆記
 
-本專案使用 [uv](https://github.com/astral-sh/uv) 管理 Python 依賴。
+從 [notes/](notes/) 目錄開始，按章節順序學習：
+1. [第一章：回歸分析](notes/01-regression.md)
+2. [第二章：機率與分佈](notes/02-probability.md)
+3. [第三章：分類方法](notes/03-classification.md)
+4. [第四章：EM 演算法與聚類](notes/04-em-algorithm.md)
+
+每個章節都包含：
+- 概念解釋（代數角度）
+- 視覺化圖片（幾何角度）
+- 公式總結
+- 練習建議
+
+### 2. 查看視覺化
+
+所有視覺化圖片都在 `output/images/` 目錄：
+- 17 張高品質 PNG 圖片
+- 展示代數和幾何兩個角度
+- 配合筆記內容理解
+
+### 3. 重新生成視覺化（可選）
+
+如果需要修改或重新生成視覺化：
 
 ```bash
-# 安裝 uv (如果還沒安裝)
-pip install uv
-
-# 安裝所有依賴
+# 安裝依賴
 uv sync
-```
 
-### 2. 生成所有視覺化
-
-```bash
-# 運行主程式，生成所有圖片
+# 生成所有視覺化
 uv run python main.py
+
+# 或單獨生成特定章節
+uv run python visualizations/regression.py
+uv run python visualizations/distributions.py
+uv run python visualizations/classification.py
+uv run python visualizations/em_algorithm.py
 ```
-
-### 3. 查看筆記
-
-開啟 `ML_NOTES.md` 閱讀完整的學習筆記，配合 `output/images/` 中的圖片學習。
 
 ## 📂 專案結構
 
 ```
 help-my-midterm/
-├── ML_NOTES.md              # 完整的機器學習筆記
-├── README.md                # 本文件
-├── main.py                  # 主程式，執行所有視覺化
-├── pyproject.toml           # uv 專案配置
-├── visualizations/          # 視覺化腳本目錄
-│   ├── regression.py        # 回歸相關視覺化
-│   ├── distributions.py     # 機率分佈視覺化
-│   ├── classification.py    # 分類方法視覺化
-│   └── em_algorithm.py      # EM 演算法視覺化
-└── output/                  # 輸出目錄（自動生成）
-    └── images/              # 所有生成的圖片
+├── notes/                   # 分章節筆記
+│   ├── README.md           # 筆記導覽
+│   ├── 01-regression.md    # 第一章：回歸分析
+│   ├── 02-probability.md   # 第二章：機率與分佈
+│   ├── 03-classification.md # 第三章：分類方法
+│   └── 04-em-algorithm.md  # 第四章：EM 演算法
+├── output/images/          # 所有視覺化圖片（17 張）
+│   ├── 00_quick_reference.png
+│   ├── 01_lse.png
+│   └── ...
+├── visualizations/         # 視覺化腳本
+│   ├── regression.py
+│   ├── distributions.py
+│   ├── classification.py
+│   ├── em_algorithm.py
+│   └── quick_reference.py
+├── main.py                 # 主程式
+├── README.md               # 本文件
+└── pyproject.toml          # uv 專案配置
 ```
 
-## 🎨 單獨運行特定視覺化
+## 📊 視覺化圖片
 
-如果你只想生成特定主題的視覺化：
+### 快速參考
+![Quick Reference](output/images/00_quick_reference.png)
 
-```bash
-# 回歸分析
-uv run python visualizations/regression.py
+### 回歸分析（5 張）
+- LSE 的幾何意義
+- L2 正規化效果
+- 梯度下降路徑
+- Bias-Variance 權衡
+- Newton vs GD 比較
 
-# 機率分佈
-uv run python visualizations/distributions.py
+### 機率分佈（4 張）
+- 高斯分佈性質
+- Beta-Binomial 共軛
+- Gamma-Poisson 共軛
+- 所有分佈總覽
 
-# 分類方法
-uv run python visualizations/classification.py
+### 分類方法（4 張）
+- Sigmoid 函數
+- Logistic Regression 決策邊界
+- Naive Bayes 分類
+- Confusion Matrix 和指標
 
-# EM 演算法
-uv run python visualizations/em_algorithm.py
-```
+### EM 演算法（3 張）
+- GMM 聚類結果
+- EM 迭代過程
+- EM 概念圖
 
-## 📖 學習建議
+## 💡 學習建議
 
-1. **先閱讀筆記**：從 `ML_NOTES.md` 開始，理解概念
-2. **查看視覺化**：對照 `output/images/` 中的圖片加深理解
-3. **親手推導**：筆記中標註的重要公式要親手推導一遍
-4. **修改參數**：嘗試修改視覺化腳本中的參數，觀察變化
+### 代數與幾何結合
+每個概念都從兩個角度理解：
+- **代數**：查看筆記中的公式和推導
+- **幾何**：觀察對應的視覺化圖片
+
+### 視覺化記憶法
+- 看到公式時，回想對應的圖片
+- 例如：LSE → 誤差線圖
+- 例如：Gradient Descent → 等高線路徑
+
+### 按順序學習
+1. 先讀概念解釋
+2. 查看視覺化圖片
+3. 理解公式推導
+4. 嘗試練習建議
 
 ## 🔧 依賴套件
 
@@ -109,17 +159,15 @@ uv run python visualizations/em_algorithm.py
 - scipy - 科學計算
 - scikit-learn - 機器學習工具
 - seaborn - 統計視覺化
-- pandas - 數據處理
-- imageio - 圖片/影片處理
+
+所有依賴透過 `uv` 管理，確保可重現性。
 
 ## 📝 授權
 
 此專案為教育用途，歡迎自由使用和分享。
 
-## 🤝 貢獻
-
-歡迎提出 Issue 或 Pull Request 來改進這個專案！
-
 ---
 
 **祝你期中考試順利！ 📚✨**
+
+記住：每個概念都有代數和幾何兩個角度，配合視覺化學習效果最佳！
